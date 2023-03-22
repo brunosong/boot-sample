@@ -1,0 +1,77 @@
+# LiveAll Admin Page
+
+LiveAll Admin Page
+
+## Versions
+    - node version : 16.15.0
+    - npm version : ??? (아시는분 작성좀)
+
+
+## Configuration
+    - 도커 환경설정은 nginx/ 폴더 하위에 있는 파일 참조
+
+
+## Quick start
+    - npm i --legacy-peer-deps
+    - npm start
+
+
+## Build
+    - npm run build : 운영 환경 빌드시
+    - npm run build:dev-local : 로컬에서 빌드에서 사용시 (도커,로컬 nginx등)
+    - npm run build:stg : 스테이징용 빌드 (도커)
+    - npm run build:dev : 개발(검증) 용 빌드
+
+
+## Docker 로컬 이미지 빌드
+    - docker build -t liveall/react-admin -f .\Dockerfile.local .
+
+
+## Docker 로컬 컨테이너 실행
+    - docker run -d -p 7176:7176 --name liveall-admin --network liveall-net -v /server/logs/liveall-admin:/var/log/nginx/ liveall/react-admin
+
+## Docker nginx 로그 마운트 위치
+    - /server/logs/liveall-admin
+
+
+
+# LiveAll Front Page
+
+  LiveAll Front Page (client)
+
+## Versions
+    - node version : 16.15.0
+    - npm version : ??? (아시는분 작성좀)
+
+
+## Configuration
+    - 도커 환경설정은 nginx/ 폴더 하위에 있는 파일 참조
+
+
+## Quick start
+    - npm i --legacy-peer-deps
+    - npm start
+
+
+## Build
+    - npm run build : 운영 환경 빌드시
+    - npm run build:dev-local : 로컬에서 빌드에서 사용시 (도커,로컬 nginx등)
+    - npm run build:stg : 스테이징용 빌드 (도커)
+    - npm run build:dev : 개발(검증) 용 빌드
+
+
+## LiveAll Front Page Docker 로컬 사용시 주의 사항
+    - docker create network liveall-net 네트워크를 생성해서 사용해야 docker-liveall-api를 호출할수 있다.
+
+## Docker 로컬 이미지 빌드
+    - docker build -t liveall/react-client:latest -f .\Dockerfile.local .
+
+## Docker 로컬 컨테이너 실행
+    - docker run -d -p 7175:7175 --name liveall-client --network liveall-net liveall/react-client
+
+
+
+
+
+
+
