@@ -48,5 +48,54 @@ public class 두배열합치기 {
         );
         
     }
+
+
+    @Test
+    void test2(){
+
+        int[] a = {1,3,5};
+        int[] b = {2,3,6,7,9};
+
+        //투포인트 알고리즘으로 해결
+        int p1 = 0;
+        int p2 = 0;
+
+        int aL = a.length;
+        int bL = b.length;
+
+        List<Integer> list = new ArrayList<>();
+
+        while (p1 < aL && p2 < bL) {
+            if(a[p1] < b[p2]) list.add(a[p1++]);
+            else {
+                list.add(b[p2++]);
+            }
+        }
+
+        while (p1 < aL) list.add(a[p1++]);
+        while (p2 < bL) list.add(b[p2++]);
+
+        System.out.println(list);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 }
